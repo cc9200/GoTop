@@ -1,4 +1,4 @@
-# GoTop
+﻿# GoTop
 快速使用
 1.安装python 3.x。
 
