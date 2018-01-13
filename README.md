@@ -12,11 +12,11 @@
 	  
 3.根据报错，用pip安装相应的包，比如：
 
-pip install keyboard
+	pip install keyboard
 
-pip install baidu-aip
+	pip install baidu-aip
 
-pip install terminaltables
+	pip install terminaltables
 
 注意：需要以管理员身份运行cmd
 
