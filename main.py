@@ -88,9 +88,10 @@ def pre_process_question(keyword):
 
 
 def main():
+    
     args = parse_args()
     timeout = args.timeout
-
+    
     if enable_chrome:
         question_obj = Value(ctypes.c_char_p, "".encode("utf-8"))
         browser_daemon = multiprocessing.Process(target=run_browser, args=(question_obj,))
@@ -99,6 +100,7 @@ def main():
 
     def __inner_job():
         start = time.time()
+        
         text_binary = analyze_current_screen_text(
             directory=data_directory,
             compress_level=image_compress_level[0]
@@ -109,7 +111,6 @@ def main():
         if not keywords:
             print("failed")
             return
-
         true_flag, question, answers = parse_question_and_answer(keywords)
         print()
         print(question)

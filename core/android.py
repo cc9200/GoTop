@@ -14,23 +14,23 @@ import os
 from PIL import Image
 from shutil import copyfile
 
-def get_screen_size():
-    cmd='adb shell wm size'
-    r=os.popen(cmd).read()
-    r=r.split(' ')[-1].strip()
-    width,height=tuple(r.split('x'))
-    return width,height
-	
-def get_target_area():
-    width,height=get_screen_size()
-    width=int(width)
-    height=int(height)
-    left=0.03
-    right=0.97
-    up=0.15
-    down=0.58
-    target_area=(int(width*left),int(height*up),int(width*right),int(height*down))
-    return target_area
+#def get_screen_size():
+#    cmd='adb shell wm size'
+#    r=os.popen(cmd).read()
+#    r=r.split(' ')[-1].strip()
+#    width,height=tuple(r.split('x'))
+#    return width,height
+#	
+#def get_target_area():
+#    width,height=get_screen_size()
+#    width=int(width)
+#    height=int(height)
+#    left=0.03
+#    right=0.97
+#    up=0.15
+#    down=0.58
+#    target_area=(int(width*left),int(height*up),int(width*right),int(height*down))
+#    return target_area
 	
 def analyze_current_screen_text(directory=".", compress_level=1):
     """
@@ -93,9 +93,15 @@ def parse_answer_area(source_file, text_area_file, compress_level):
         image = image.convert("L")
     elif compress_level == 2:
         image = image.convert("1")
-    wide = image.size[0]
     
-    target_area=get_target_area()
+    width,height = image.size
+    left=0.03
+    right=0.97
+    up=0.18
+    down=0.58
+    target_area=(int(width*left),int(height*up),int(width*right),int(height*down))
+    
+    
     region = image.crop(target_area)
     region.save(text_area_file)
 
