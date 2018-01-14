@@ -91,19 +91,28 @@ def main():
     
     args = parse_args()
     timeout = args.timeout
+    print(os.popen('adb devices').read())
+    print('''
+          1.冲顶大会
+          2.芝士超人
+          3.百万英雄
     
+    ''')
+    choice=input('本次答题的APP是')
+    choice=int(choice)
     if enable_chrome:
         question_obj = Value(ctypes.c_char_p, "".encode("utf-8"))
         browser_daemon = multiprocessing.Process(target=run_browser, args=(question_obj,))
         browser_daemon.daemon = True
         browser_daemon.start()
 
-    def __inner_job():
+    def __inner_job(index=choice):
         start = time.time()
         
         text_binary = analyze_current_screen_text(
             directory=data_directory,
-            compress_level=image_compress_level[0]
+            compress_level=image_compress_level[1],
+            index=choice
         )
         keywords = get_text_from_image(
             image_data=text_binary,

@@ -32,7 +32,7 @@ from shutil import copyfile
 #    target_area=(int(width*left),int(height*up),int(width*right),int(height*down))
 #    return target_area
 	
-def analyze_current_screen_text(directory=".", compress_level=1):
+def analyze_current_screen_text(directory=".", compress_level=1,index=1):
     """
     capture the android screen now
 
@@ -42,7 +42,7 @@ def analyze_current_screen_text(directory=".", compress_level=1):
     screenshot_filename = "screenshot.png"
     save_text_area = os.path.join(directory, "text_area.png")
     capture_screen(screenshot_filename, directory)
-    parse_answer_area(os.path.join(directory, screenshot_filename), save_text_area, compress_level)
+    parse_answer_area(os.path.join(directory, screenshot_filename), save_text_area, compress_level,index)
     return get_area_data(save_text_area)
 
 
@@ -81,7 +81,7 @@ def save_screen(filename="screenshot.png", directory="."):
              os.path.join(directory, datetime.now().strftime("%m%d_%H%M%S").join(os.path.splitext(filename))))
 
 
-def parse_answer_area(source_file, text_area_file, compress_level):
+def parse_answer_area(source_file, text_area_file, compress_level,index=1):
     """
     crop the answer area
 
@@ -95,10 +95,21 @@ def parse_answer_area(source_file, text_area_file, compress_level):
         image = image.convert("1")
     
     width,height = image.size
-    left=0.03
-    right=0.97
-    up=0.18
-    down=0.58
+    if index==1:##冲顶大会
+        left=0.04
+        right=0.96
+        up=0.18
+        down=0.57
+    elif index==2:##芝士超人
+        left=0.03
+        right=0.97
+        up=0.16
+        down=0.60
+    else:       ##百万英雄
+        left=0.04
+        right=0.96
+        up=0.18
+        down=0.65
     target_area=(int(width*left),int(height*up),int(width*right),int(height*down))
     
     
