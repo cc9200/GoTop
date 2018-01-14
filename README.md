@@ -39,3 +39,5 @@ ocr/android.py里面的parse_answer_area()函数
 
 6.出现题目的一瞬间，按下enter建。
 肯定回答和否定回答的意思，我懒得说了，这都不明白还是别用了
+
+7.目前只支持Android
