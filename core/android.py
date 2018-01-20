@@ -108,8 +108,8 @@ def parse_answer_area(source_file, text_area_file, compress_level,index=1):
     else:       ##百万英雄
         left=0.04
         right=0.96
-        up=0.18
-        down=0.65
+        up=0.19
+        down=0.63
     target_area=(int(width*left),int(height*up),int(width*right),int(height*down))
     
     

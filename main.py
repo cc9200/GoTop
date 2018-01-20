@@ -83,7 +83,9 @@ def pre_process_question(keyword):
 
     keyword = keyword.split(r"．")[-1]
     keywords = keyword.split(" ")
+    
     keyword = "".join([e.strip("\r\n") for e in keywords if e])
+    keywords = keyword.strip('下列')
     return keyword
 
 
@@ -91,6 +93,7 @@ def main():
     
     args = parse_args()
     timeout = args.timeout
+    
     print(os.popen('adb devices').read())
     print('''
           1.冲顶大会
@@ -117,12 +120,14 @@ def main():
         keywords = get_text_from_image(
             image_data=text_binary,
         )
+        ##print('中国',keywords)
         if not keywords:
             print("failed")
             return
+        ##true_flag,问题是否为正向问题，选择错误项的问题为反向问题
         true_flag, question, answers = parse_question_and_answer(keywords)
-        print()
-        print(question)
+        
+        print('\n',question)
     
 
         # notice browser
