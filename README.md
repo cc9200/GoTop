@@ -38,8 +38,11 @@ ocr/android.py里面的parse_answer_area()函数
 屏幕左上角的坐标为（0,0），其他点都相对于这个坐标
 
 已经多次测试，一般不需要改动
+![image](https://github.com/cc9200/GoTop/blob/master/%E6%95%88%E6%9E%9C%E5%9B%BE1.PNG)
 
 6.出现题目的一瞬间，按下enter建。
 肯定回答和否定回答的意思，我懒得说了，这都不明白还是别用了
 
 7.目前只支持Android
+
+
