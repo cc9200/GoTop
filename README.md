@@ -39,7 +39,8 @@ ocr/android.py里面的parse_answer_area()函数
 
 已经多次测试，一般不需要改动
 ![image](https://github.com/cc9200/GoTop/blob/master/%E6%95%88%E6%9E%9C%E5%9B%BE1.PNG)
-
+![image](https://github.com/cc9200/GoTop/blob/master/%E6%95%88%E6%9E%9C%E5%9B%BE2.PNG)
+![image](https://github.com/cc9200/GoTop/blob/master/%E6%95%88%E6%9E%9C%E5%9B%BE3.PNG)
 6.出现题目的一瞬间，按下enter建。
 肯定回答和否定回答的意思，我懒得说了，这都不明白还是别用了
 
